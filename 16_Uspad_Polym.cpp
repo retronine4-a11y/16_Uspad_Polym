@@ -12,30 +12,59 @@ public:
 
 class President : public Employer
 {
+private:
+    string developmentStrategy;
+
 public:
+    President(string developmentStrategy)
+    {
+        this->developmentStrategy = developmentStrategy;
+    }
+
     void Print() override
     {
         cout << "Position: President" << endl;
+        cout << "Development strategy: " << developmentStrategy << endl;
         cout << "Manages the entire company" << endl;
+        cout << "Manages the entire company" << endl;
+        
     }
 };
 
 class Manager : public Employer
 {
+private:
+    int employeeCount;
+
 public:
+    Manager(int employeeCount)
+    {
+        this->employeeCount = employeeCount;
+    }
+
     void Print() override
     {
         cout << "Position: Manager" << endl;
+        cout << "Number of subordinates: " << employeeCount << endl;
         cout << "Manages employees and departments" << endl;
     }
 };
 
 class Worker : public Employer
 {
+private:
+    int qualificationLevel;
+
 public:
+    Worker(int qualificationLevel)
+    {
+        this->qualificationLevel = qualificationLevel;
+    }
+
     void Print() override
     {
         cout << "Position: Worker" << endl;
+        cout << "Qualification level: " << qualificationLevel << endl;
         cout << "Performs work tasks" << endl;
     }
 };
@@ -99,9 +128,9 @@ int main()
 {
     Employer* employees[3];
 
-    President p;
-    Manager m;
-    Worker w;
+    President p("Technological development");
+    Manager m(25);
+    Worker w(4);
 
     employees[0] = &p;
     employees[1] = &m;
